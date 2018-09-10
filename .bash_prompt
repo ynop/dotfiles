@@ -1,0 +1,5 @@
+
+# GIT Bash completion
+source /usr/local/etc/bash_completion.d/git-completion.bash
+GIT_PS1_SHOWDIRTYSTATE=true
+export PS1='[\u \w ($(git branch 2>/dev/null | grep '^*' | colrm 1 2))]\$ '
