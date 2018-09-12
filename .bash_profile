@@ -6,12 +6,12 @@ done;
 
 
 if [[ "$OSTYPE" =~ ^darwin ]]; then
-	file=.bash_osx
+	file=~/dot-files/.bash_osx
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 fi
 
 if [[ "$OSTYPE" =~ ^linux ]]; then
-	file=.bash_linux
+	file=~/dot-files/.bash_linux
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 fi
 

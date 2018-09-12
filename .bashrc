@@ -4,3 +4,5 @@ case $- in
 	*) return;;
 esac
 
+[ -r "~/.bash_profile" ] && [ -f "~/.bash_profile" ] && source "~/.bash_profile";
+
