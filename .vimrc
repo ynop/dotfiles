@@ -18,20 +18,43 @@ Plugin 'gmarik/Vundle.vim'
 " used Bundle instead of Plugin)
 
 "Plugin 'vim-scripts/indentpython.vim'
-"Bundle 'Valloric/YouCompleteMe'
-Plugin 'vim-syntastic/syntastic'
 "Plugin 'nvie/vim-flake8'
-"Plugin 'altercation/vim-colors-solarized'
 "Plugin 'jnurmine/Zenburn'
 "Plugin 'morhetz/gruvbox'
-"Plugin 'vim-airline/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
+
+" Status line
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+" File Tree
 Plugin 'scrooloose/nerdtree'
+
+" Style
+Plugin 'altercation/vim-colors-solarized'
+
+" Fuzzy file
+Plugin 'kien/ctrlp.vim'
+
+" Auto Completion
+Bundle 'Valloric/YouCompleteMe'
+
+" Syntax Checker
+Plugin 'vim-syntastic/syntastic'
 
 " Code Formatter (https://github.com/google/vim-codefmt)
 Plugin 'google/vim-maktaba'
 Plugin 'google/vim-codefmt'
 Plugin 'google/vim-glaive'
+
+" GIT
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rhubarb'
+
+" Markdown Preview
+Plugin 'JamshedVesuna/vim-markdown-preview'
+
+" Test Runner
+Plugin 'janko-m/vim-test'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -123,17 +146,6 @@ au BufNewFile,BufRead *.py
 :highlight BadWhitespace ctermbg=red guibg=red
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
-" Virtualenv support
-py3 << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  exec(compile(open(activate_this, "rb").read(), activate_this, 'exec'),
-  dict(__file__=activate_this))
-EOF
-
 " Syntax highlighting
 let python_highlight_all=1
 
@@ -181,3 +193,31 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:syntastic_rst_checkers = ['sphinx']
+
+" #######################################################################
+" markdown preview
+"
+
+let vim_markdown_preview_github=1
+let vim_markdown_preview_browser='Google Chrome'
+let vim_markdown_preview_toggle=2
+
+" #######################################################################
+" Test Runner
+"
+
+nmap t<C-n> :TestNearest<CR> " t Ctrl+n
+nmap t<C-f> :TestFile<CR>    " t Ctrl+f
+nmap t<C-s> :TestSuite<CR>   " t Ctrl+s
+nmap t<C-l> :TestLast<CR>    " t Ctrl+l
+nmap t<C-g> :TestVisit<CR>   " t Ctrl+g
+
+" #######################################################################
+" Status line
+"
+
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='light'
+
