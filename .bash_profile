@@ -19,4 +19,5 @@ fi
 shopt -s histappend
 
 # Code completion
-source /usr/local/etc/bash_completion.d/git-completion.bash
+[ -f /usr/local/etc/bash_completion.d/git-completion.bash ] && source /usr/local/etc/bash_completion.d/git-completion.bash
+[ -f /usr/share/bash-completion/bash_completion ] && source /usr/share/bash-completion/bash_completion 
