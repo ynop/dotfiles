@@ -105,6 +105,9 @@ set backspace=indent,eol,start
 " Toggle NerdTree
 map <C-n> :NERDTreeToggle<CR>
 
+" Search by selection
+vnoremap // y/<C-R>"<CR>
+
 " #######################################################################
 " EDITOR BEHAVIOUR
 "
@@ -202,7 +205,7 @@ let g:syntastic_rst_checkers = ['sphinx']
 
 let vim_markdown_preview_github=1
 let vim_markdown_preview_browser='Google Chrome'
-let vim_markdown_preview_toggle=2
+let vim_markdown_preview_toggle=1
 
 " #######################################################################
 " Test Runner
