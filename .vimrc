@@ -122,7 +122,7 @@ set scrolloff=1
 set sidescrolloff=5
 
 " color-scheme
-set background=dark
+set background=light
 colorscheme solarized
 
 " enable syntax highlighting
@@ -131,8 +131,12 @@ syntax on
 " show line under cursor
 set cursorline
 
+" show line after 80 columns
+highlight ColorColumn ctermbg=lightgray
+set colorcolumn=80
+
 " #######################################################################
-" PYTHON 
+" PYTHON
 "
 
 " .PY On tab make 4 spaces
@@ -162,6 +166,19 @@ au BufNewFile,BufRead *.sh
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
     \ set textwidth=120 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
+
+" #######################################################################
+" .yaml/.yml
+"
+
+" .yml On tab make 4 spaces
+au BufNewFile,BufRead *.yml
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix
@@ -222,6 +239,6 @@ nmap t<C-g> :TestVisit<CR>   " t Ctrl+g
 " Status line
 "
 
-let g:airline_theme='solarized'
+let g:airline_theme='bubblegum'
 let g:airline_solarized_bg='light'
 
