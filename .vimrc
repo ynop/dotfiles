@@ -46,10 +46,6 @@ Plugin 'google/vim-maktaba'
 Plugin 'google/vim-codefmt'
 Plugin 'google/vim-glaive'
 
-" GIT
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rhubarb'
-
 " Markdown Preview
 Plugin 'JamshedVesuna/vim-markdown-preview'
 
@@ -132,8 +128,11 @@ syntax on
 set cursorline
 
 " show line after 80 columns
-highlight ColorColumn ctermbg=lightgray
-set colorcolumn=80
+" highlight ColorColumn ctermbg=lightgray
+" set colorcolumn=80
+
+" buffered redraw
+:set lazyredraw
 
 " #######################################################################
 " PYTHON
@@ -214,7 +213,10 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_rst_checkers = ['sphinx']
+let g:syntastic_python_checkers = ['flake8']
+
+" Leave out -> pretty slow
+" let g:syntastic_rst_checkers = ['sphinx']
 
 " #######################################################################
 " markdown preview
@@ -229,6 +231,9 @@ let vim_markdown_preview_hotkey='<C-m>'
 " Test Runner
 "
 
+" make test commands execute using dispatch.vim
+let test#strategy = "vimterminal"
+
 nmap t<C-n> :TestNearest<CR> " t Ctrl+n
 nmap t<C-f> :TestFile<CR>    " t Ctrl+f
 nmap t<C-s> :TestSuite<CR>   " t Ctrl+s
@@ -239,6 +244,7 @@ nmap t<C-g> :TestVisit<CR>   " t Ctrl+g
 " Status line
 "
 
+let g:airline_extensions = ['ctrlp', 'syntastic']
 let g:airline_theme='bubblegum'
 let g:airline_solarized_bg='light'
 
