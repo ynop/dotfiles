@@ -20,7 +20,7 @@
     "shortcut_name" : "MoveToBottomHalf"
   },
   {
-    "shortcut_key_binding" : "ctrl+cmd+k",
+    "shortcut_key_binding" : "ctrl+cmd+j",
     "shortcut_name" : "MoveToNextDisplay"
   },
   {
@@ -40,7 +40,7 @@
     "shortcut_name" : "UndoLastMove"
   },
   {
-    "shortcut_key_binding" : "ctrl+cmd+j",
+    "shortcut_key_binding" : "ctrl+cmd+k",
     "shortcut_name" : "MoveToPreviousDisplay"
   },
   {

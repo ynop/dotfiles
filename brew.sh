@@ -6,6 +6,7 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
-# Grip / Github markdown preview
-brew install grip
-
+brew install git
+brew install vim --with-python3
+brew install tmux
+brew install cmake
