@@ -10,6 +10,9 @@ sudo tlmgr install cancel
 sudo tlmgr install environ
 sudo tlmgr install trimspaces
 sudo tlmgr install stmaryrd
+sudo tlmgr install algorithms
+sudo tlmgr install courier
+sudo tlmgr install svg
 
 sudo tlmgr install biblatex
 sudo tlmgr install biber

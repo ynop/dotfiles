@@ -17,11 +17,6 @@ Plugin 'gmarik/Vundle.vim'
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 
-"Plugin 'vim-scripts/indentpython.vim'
-"Plugin 'nvie/vim-flake8'
-"Plugin 'jnurmine/Zenburn'
-"Plugin 'morhetz/gruvbox'
-
 " Status line
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -38,13 +33,8 @@ Plugin 'kien/ctrlp.vim'
 " Auto Completion
 Bundle 'Valloric/YouCompleteMe'
 
-" Syntax Checker
-Plugin 'vim-syntastic/syntastic'
-
-" Code Formatter (https://github.com/google/vim-codefmt)
-Plugin 'google/vim-maktaba'
-Plugin 'google/vim-codefmt'
-Plugin 'google/vim-glaive'
+" Linting / Fixing
+Plugin 'w0rp/ale'
 
 " Markdown Preview
 Plugin 'JamshedVesuna/vim-markdown-preview'
@@ -56,7 +46,7 @@ Plugin 'janko-m/vim-test'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-call glaive#Install()
+"call glaive#Install()
 "
 " VUNDLE END
 "
@@ -134,6 +124,10 @@ set cursorline
 " buffered redraw
 :set lazyredraw
 
+" Flag unnecessary Whitespace
+:highlight BadWhitespace ctermbg=red guibg=red
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
 " #######################################################################
 " PYTHON
 "
@@ -147,10 +141,6 @@ au BufNewFile,BufRead *.py
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix
-
-" Flag unnecessary Whitespace
-:highlight BadWhitespace ctermbg=red guibg=red
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " Syntax highlighting
 let python_highlight_all=1
@@ -183,40 +173,23 @@ au BufNewFile,BufRead *.yml
     \ set fileformat=unix
 
 " #######################################################################
-" codefmt
+" ale
 "
 
-:nnoremap fc :FormatCode<CR>
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_save = 1
+let g:ale_fix_on_save = 1
+let g:ale_set_balloons = 1
 
-augroup autoformat_settings
-	autocmd FileType bzl AutoFormatBuffer buildifier
-	autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
-	autocmd FileType dart AutoFormatBuffer dartfmt
-	autocmd FileType go AutoFormatBuffer gofmt
-	autocmd FileType gn AutoFormatBuffer gn
-	autocmd FileType html,css,json AutoFormatBuffer js-beautify
-	autocmd FileType java AutoFormatBuffer google-java-format
-	"autocmd FileType python AutoFormatBuffer yapf
-	autocmd FileType python AutoFormatBuffer autopep8
-augroup END
+let b:ale_linters = {
+\   'python': ['flake8', 'pyls'],
+\}
 
-" #######################################################################
-" syntastic
-"
+let b:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'python': ['autopep8'],
+\}
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_python_checkers = ['flake8']
-
-" Leave out -> pretty slow
-" let g:syntastic_rst_checkers = ['sphinx']
 
 " #######################################################################
 " markdown preview
@@ -244,7 +217,7 @@ nmap t<C-g> :TestVisit<CR>   " t Ctrl+g
 " Status line
 "
 
-let g:airline_extensions = ['ctrlp', 'syntastic']
+let g:airline_extensions = ['ctrlp', 'ale']
 let g:airline_theme='bubblegum'
 let g:airline_solarized_bg='light'
 
