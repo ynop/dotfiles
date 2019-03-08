@@ -181,14 +181,17 @@ let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
 let g:ale_set_balloons = 1
 
-let b:ale_linters = {
+let g:ale_linters = {
 \   'python': ['flake8', 'pyls'],
 \}
 
-let b:ale_fixers = {
+let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'python': ['autopep8'],
+\   'javascript': ['prettier'],
 \}
+
+:nnoremap fc :ALEFix<CR>
 
 
 " #######################################################################
@@ -220,4 +223,3 @@ nmap t<C-g> :TestVisit<CR>   " t Ctrl+g
 let g:airline_extensions = ['ctrlp', 'ale']
 let g:airline_theme='bubblegum'
 let g:airline_solarized_bg='light'
-
