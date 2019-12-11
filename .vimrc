@@ -31,7 +31,8 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'kien/ctrlp.vim'
 
 " Auto Completion
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
+Plugin 'maralla/completor.vim'
 
 " Linting / Fixing
 Plugin 'w0rp/ale'
@@ -146,6 +147,20 @@ au BufNewFile,BufRead *.py
 let python_highlight_all=1
 
 " #######################################################################
+" JAVA
+"
+
+" .JAVA On tab make 4 spaces
+au BufNewFile,BufRead *.java
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=120 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
+
+" #######################################################################
 " .SH
 "
 
@@ -173,6 +188,19 @@ au BufNewFile,BufRead *.yml
     \ set fileformat=unix
 
 " #######################################################################
+" .tex
+"
+
+" .tex On tab make 2 spaces
+au BufNewFile,BufRead *.tex
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
+
+" #######################################################################
 " ale
 "
 
@@ -189,10 +217,28 @@ let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'python': ['autopep8'],
 \   'javascript': ['prettier'],
+\   'java': ['google_java_format'],
+\   'json': ['prettier'],
 \}
 
 :nnoremap fc :ALEFix<CR>
 
+" #######################################################################
+" auto completor
+"
+
+" Use tab to fill completion
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" options
+noremap <silent> <leader>d :call completor#do('definition')<CR>
+noremap <silent> <leader>c :call completor#do('doc')<CR>
+noremap <silent> <leader>f :call completor#do('format')<CR>
+noremap <silent> <leader>s :call completor#do('hover')<CR>
+
+" Binary of jedi python completor
+let g:completor_python_binary = '/usr/local/bin/python3.7'
 
 " #######################################################################
 " markdown preview
@@ -209,6 +255,7 @@ let vim_markdown_preview_hotkey='<C-m>'
 
 " make test commands execute using dispatch.vim
 let test#strategy = "vimterminal"
+let test#vim#term_position = "splitbelow"
 
 nmap t<C-n> :TestNearest<CR> " t Ctrl+n
 nmap t<C-f> :TestFile<CR>    " t Ctrl+f
