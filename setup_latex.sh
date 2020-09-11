@@ -16,3 +16,5 @@ sudo tlmgr install svg
 
 sudo tlmgr install biblatex
 sudo tlmgr install biber
+
+sudo tlmgr install latexmk
