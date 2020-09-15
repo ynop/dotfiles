@@ -40,7 +40,7 @@ set sidescrolloff=5
 " IDEA CUSTOMS
 "
 
-:map <C-l>f :action ReformatCode<CR>
+:map <C-i>f :action ReformatCode<CR>
+:map <C-i>r :action RenameElement<CR>
 
 :map <C-p> :action SearchEverywhere<CR>
-:map <C-l>r :action RenameElement<CR>

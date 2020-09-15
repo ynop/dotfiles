@@ -33,6 +33,9 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 
+" Test Runner
+Plug 'vim-test/vim-test'
+
 call plug#end()
 
 " #######################################################################
@@ -139,19 +142,33 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " Required for operations modifying multiple buffers like rename.
 set hidden
 
+"let g:LanguageClient_changeThrottle = 0.5
 let g:LanguageClient_selectionUI = "location-list"
 let g:LanguageClient_diagnosticsList = "location"
+let g:LanguageClient_settingsPath = '/Users/matthi/.vim/settings.json'
 let g:LanguageClient_loggingFile = "/tmp/lc.log"
-"let g:LanguageClient_loggingLevel = 'DEBUG'
+let g:LanguageClient_loggingLevel = 'DEBUG'
 
 let g:LanguageClient_serverCommands = {
 	\ 'python': ['/usr/local/bin/pyls'],
-	\ 'dart': ['/Users/matthi/zhaw/p7/dart-sdk/bin/dart', '/Users/matthi/zhaw/p7/dart-sdk/bin/snapshots/analysis_server.dart.snapshot', '--lsp']
+	\ 'dart': ['/Users/matthi/zhaw/p7/dart-sdk/bin/dart', '/Users/matthi/zhaw/p7/dart-sdk/bin/snapshots/analysis_server.dart.snapshot', '--lsp'],
+	\ 'json': ['/usr/local/lib/node_modules/vscode-json-languageserver/bin/vscode-json-languageserver', '--stdio'],
 	\ }
 
-nnoremap <silent> <C-l>h :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> <C-l>q :call LanguageClient#textDocument_references()<CR>
-nnoremap <silent> <C-l>r :call LanguageClient#textDocument_rename()<CR>
-nnoremap <silent> <C-l>f :call LanguageClient#textDocument_formatting()<CR>
+nnoremap <silent> <C-i>h :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> <C-i>q :call LanguageClient#textDocument_references()<CR>
+nnoremap <silent> <C-i>r :call LanguageClient#textDocument_rename()<CR>
+nnoremap <silent> <C-i>f :call LanguageClient#textDocument_formatting()<CR>
+nnoremap <silent> <C-i>q :call LanguageClient#textDocument_rangeFormatting()<CR>
 
+" #######################################################################
+" Test Runner
+"
 
+let test#strategy = "vimterminal"
+
+nmap t<C-n> :TestNearest<CR> " t Ctrl+n
+nmap t<C-f> :TestFile<CR>    " t Ctrl+f
+nmap t<C-s> :TestSuite<CR>   " t Ctrl+s
+nmap t<C-l> :TestLast<CR>    " t Ctrl+l
+nmap t<C-g> :TestVisit<CR>   " t Ctrl+g

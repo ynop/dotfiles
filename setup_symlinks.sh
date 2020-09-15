@@ -7,6 +7,7 @@ ln -s $(pwd)/.vimrc $HOME/.vimrc
 
 mkdir -p $HOME/.vim
 ln -s $(pwd)/vim/ftplugin $HOME/.vim
+ln -s $(pwd)/vim/settings.json $HOME/.vim/settings.json
 ln -s $(pwd)/.zshrc $HOME/.zshrc
 
 rm "$HOME/Library/Application Support/Spectacle/Shortcuts.json"
