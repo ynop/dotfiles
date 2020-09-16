@@ -102,7 +102,8 @@ alias ll="ls -la"
 
 # dart
 # PATH=${PATH}:/usr/local/opt/dart/libexec
-PATH=${PATH}:/Users/matthi/zhaw/p7/dart-sdk/bin
+export DART_SDK=/Users/matthi/zhaw/p7/dart-sdk
+PATH=${PATH}:$DART_SDK/bin
 export PATH
 
 # flutter

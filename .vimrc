@@ -27,11 +27,8 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 
-" Language Server Client
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+" Lint / Fix / Language Server Client
+Plug 'dense-analysis/ale'
 
 " Test Runner
 Plug 'vim-test/vim-test'
@@ -109,7 +106,7 @@ set cursorline
 " set colorcolumn=80
 
 " buffered redraw
-:set lazyredraw
+" :set lazyredraw
 
 " Flag unnecessary Whitespace
 :highlight BadWhitespace ctermbg=red guibg=red
@@ -123,9 +120,34 @@ set autoindent
 " Airline
 "
 
-let g:airline_extensions = ['ctrlp']
+let g:airline_extensions = ['ctrlp', 'ale']
 let g:airline_theme='bubblegum'
 let g:airline_solarized_bg='light'
+
+" #######################################################################
+" ale
+"
+
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_save = 1
+let g:ale_fix_on_save = 1
+let g:ale_set_balloons = 1
+let g:airline#extensions#ale#enabled = 1
+
+let g:ale_linters = {}
+
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace']
+\}
+
+nnoremap <silent> <C-i>h :ALEHover<CR>
+nnoremap <silent> <C-i>q :ALEFindReferences<CR>
+nnoremap <silent> <C-i>r :ALERename<CR>
+nnoremap <silent> <C-i>f :ALEFix<CR>
+nnoremap <silent> <C-i>l :ALELint<CR>
+nnoremap <silent> <C-i>d :ALEGoToDefinition<CR>
+nnoremap <silent> <C-i>j :ALENext<CR>
+nnoremap <silent> <C-i>k :ALEPrevious<CR>
 
 " #######################################################################
 " deoplete
@@ -133,33 +155,13 @@ let g:airline_solarized_bg='light'
 
 let g:deoplete#enable_at_startup = 1
 
+" Use ALE and also some plugin 'foobar' as completion sources for all code.
+call deoplete#custom#option('sources', {
+\ '_': ['ale'],
+\})
+
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" #######################################################################
-" Language Client 
-"
-" Required for operations modifying multiple buffers like rename.
-set hidden
-
-"let g:LanguageClient_changeThrottle = 0.5
-let g:LanguageClient_selectionUI = "location-list"
-let g:LanguageClient_diagnosticsList = "location"
-let g:LanguageClient_settingsPath = '/Users/matthi/.vim/settings.json'
-let g:LanguageClient_loggingFile = "/tmp/lc.log"
-let g:LanguageClient_loggingLevel = 'DEBUG'
-
-let g:LanguageClient_serverCommands = {
-	\ 'python': ['/usr/local/bin/pyls'],
-	\ 'dart': ['/Users/matthi/zhaw/p7/dart-sdk/bin/dart', '/Users/matthi/zhaw/p7/dart-sdk/bin/snapshots/analysis_server.dart.snapshot', '--lsp'],
-	\ 'json': ['/usr/local/lib/node_modules/vscode-json-languageserver/bin/vscode-json-languageserver', '--stdio'],
-	\ }
-
-nnoremap <silent> <C-i>h :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> <C-i>q :call LanguageClient#textDocument_references()<CR>
-nnoremap <silent> <C-i>r :call LanguageClient#textDocument_rename()<CR>
-nnoremap <silent> <C-i>f :call LanguageClient#textDocument_formatting()<CR>
-nnoremap <silent> <C-i>q :call LanguageClient#textDocument_rangeFormatting()<CR>
 
 " #######################################################################
 " Test Runner
