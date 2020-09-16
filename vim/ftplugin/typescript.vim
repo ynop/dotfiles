@@ -4,3 +4,5 @@ setlocal shiftwidth=4
 setlocal textwidth=120
 setlocal expandtab
 
+let b:ale_linters = ['tsserver']
+let b:ale_fixers = ['prettier']

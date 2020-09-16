@@ -3,3 +3,6 @@ setlocal softtabstop=2
 setlocal shiftwidth=2
 setlocal textwidth=120
 setlocal expandtab
+
+let b:ale_linters = ['yamllint']
+let b:ale_fixers = ['prettier']
