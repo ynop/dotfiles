@@ -18,5 +18,5 @@ call ale#linter#Define('dart', {
 \   'project_root': function('dart#GetProjectRoot'),
 \})
 
-let b:ale_linters = ['dart-language-server', 'dartanalyzer']
+let b:ale_linters = ['dart-language-server']
 let b:ale_fixers = ['dartfmt']

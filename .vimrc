@@ -146,8 +146,8 @@ nnoremap <silent> <C-i>r :ALERename<CR>
 nnoremap <silent> <C-i>f :ALEFix<CR>
 nnoremap <silent> <C-i>l :ALELint<CR>
 nnoremap <silent> <C-i>d :ALEGoToDefinition<CR>
-nnoremap <silent> <C-i>j :ALENext<CR>
-nnoremap <silent> <C-i>k :ALEPrevious<CR>
+nnoremap <silent> <C-i>n :ALENext<CR>
+nnoremap <silent> <C-i>p :ALEPrevious<CR>
 
 " #######################################################################
 " deoplete
