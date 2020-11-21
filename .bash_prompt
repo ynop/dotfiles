@@ -1,4 +1,0 @@
-
-# GIT Bash completion
-GIT_PS1_SHOWDIRTYSTATE=true
-export PS1='[\u \w (\[\e[1;35m\]$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\[\e[0m\])]\$ '
