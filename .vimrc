@@ -33,6 +33,9 @@ Plug 'dense-analysis/ale'
 " Test Runner
 Plug 'vim-test/vim-test'
 
+" Window swap
+Plug 'wesQ3/vim-windowswap'
+
 call plug#end()
 
 " #######################################################################
@@ -41,6 +44,18 @@ call plug#end()
 
 " Use UTF-8
 set encoding=utf-8
+
+" #######################################################################
+" FOLDING
+
+set foldmethod=indent
+set foldnestmax=10
+
+" No folding on open
+set nofoldenable
+
+" Initial level
+set foldlevel=2
 
 " #######################################################################
 " SEARCH / REPLACE
@@ -174,3 +189,9 @@ nmap t<C-f> :TestFile<CR>    " t Ctrl+f
 nmap t<C-s> :TestSuite<CR>   " t Ctrl+s
 nmap t<C-l> :TestLast<CR>    " t Ctrl+l
 nmap t<C-g> :TestVisit<CR>   " t Ctrl+g
+
+" #######################################################################
+" Allow project specific .vimrc
+"
+set exrc
+set secure

@@ -5,3 +5,4 @@
 vim-markdown-preview.html
 .venv
 *myignore*
+.vimrc
