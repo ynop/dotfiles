@@ -11,7 +11,6 @@ brew install vim --with-python3
 brew install tmux
 brew install cmake
 brew install pandoc
-brew install carthage
 
 # zathura
 brew tap zegervdv/zathura
