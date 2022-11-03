@@ -9,6 +9,8 @@ endif
 
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
+Plug 'nvim-tree/nvim-web-devicons'
+
 " Show lines for same indentation
 Plug 'lukas-reineke/indent-blankline.nvim'
 
@@ -20,8 +22,10 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 
 " Status line
-Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-lualine/lualine.nvim'
+
+" File Tree
+Plug 'nvim-tree/nvim-tree.lua'
 
 call plug#end()
 
@@ -57,6 +61,9 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
+" Toggle file tree
+map <C-n> :NvimTreeToggle<CR>
+
 " #######################################################################
 " EDITOR BEHAVIOUR
 "
@@ -87,7 +94,7 @@ set list
 " #######################################################################
 " LUALINE
 "
-"
+
 lua <<EOF
 require('lualine').setup {
     options = {
@@ -96,6 +103,27 @@ require('lualine').setup {
     }
 }
 EOF
+
+" #######################################################################
+" NVIM TREE
+"
+
+lua <<EOF
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = false
+require("nvim-tree").setup()
+EOF
+
+"""
+
+lua <<EOF
+require'nvim-web-devicons'.setup {
+ color_icons = true;
+ default = true;
+}
+EOF
+
 
 " #######################################################################
 " STUFF THAT NEEDS TO BE AT THE END

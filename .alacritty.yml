@@ -1,6 +1,9 @@
 font:
   size: 15.0
 
+  normal:
+    family: Hack Nerd Font
+
 schemes:
   gruvbox_light: &gruvbox_light
     primary:
