@@ -1,10 +1,10 @@
 [credential]
 	helper = osxkeychain
 [user]
-	name = buec
+	name = ynop
 	email = m.buechi@outlook.com
 [core]
-	editor = vim
+	editor = nvim
 	excludesfile = ~/.gitignore_global
 [color]
 	branch = auto
