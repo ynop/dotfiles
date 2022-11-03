@@ -3,6 +3,8 @@ ln -s $(pwd)/.zshrc $HOME/.zshrc
 ln -s $(pwd)/git/.gitconfig $HOME/.gitconfig
 ln -s $(pwd)/git/.gitignore_global $HOME/.gitignore_global
 
+ln -s $(pwd)/.alacritty.yml $HOME/.alacritty.yml
+
 mkdir -p $HOME/.ssh
 ln -s $(pwd)/ssh/config $HOME/config
 ln -s $(pwd)/ssh/connections $HOME/connection
