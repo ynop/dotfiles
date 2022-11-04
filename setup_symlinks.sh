@@ -7,6 +7,9 @@ ln -s $(pwd)/.alacritty.yml $HOME/.alacritty.yml
 
 ln -s $(pwd)/.tmux.conf $HOME/.tmux.conf
 
+mkdir -p $HOME/.tmuxp
+ln -s $(pwd)/tmux_code.yml $HOME/.tmuxp/tmux_code.yml
+
 mkdir -p $HOME/.ssh
 ln -s $(pwd)/ssh/config $HOME/.ssh/config
 ln -s $(pwd)/ssh/connections $HOME/.ssh/connections
