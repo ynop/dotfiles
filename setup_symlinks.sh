@@ -5,6 +5,8 @@ ln -s $(pwd)/git/.gitignore_global $HOME/.gitignore_global
 
 ln -s $(pwd)/.alacritty.yml $HOME/.alacritty.yml
 
+ln -s $(pwd)/.tmux.conf $HOME/.tmux.conf
+
 mkdir -p $HOME/.ssh
 ln -s $(pwd)/ssh/config $HOME/.ssh/config
 ln -s $(pwd)/ssh/connections $HOME/.ssh/connections
