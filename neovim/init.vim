@@ -10,6 +10,7 @@ endif
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
 Plug 'nvim-tree/nvim-web-devicons'
+Plug 'altercation/vim-colors-solarized'
 
 " Show lines for same indentation
 Plug 'lukas-reineke/indent-blankline.nvim'
@@ -37,6 +38,8 @@ set ignorecase 			" Ignore case in search patterns
 set smartcase 			" Overrides ignorecase if pattern contains upcase
 set wildmode=longest,list 	" Bash like completions (e.g. when entering a a file path)
 
+set background=light
+colorscheme solarized
 
 " #######################################################################
 " KEY MAPPING
@@ -92,14 +95,25 @@ set softtabstop=4
 set list
 
 " #######################################################################
+" WEB DEV ICONS
+"
+
+lua <<EOF
+require'nvim-web-devicons'.setup {
+ color_icons = true;
+ default = true;
+}
+EOF
+
+
+" #######################################################################
 " LUALINE
 "
 
 lua <<EOF
-require('lualine').setup {
+require('lualine').setup{
     options = {
-        theme = 'solarized_light',
-        icons_enabled = true
+        theme = 'solarized_light'
     }
 }
 EOF
@@ -116,14 +130,6 @@ require("nvim-tree").setup()
 EOF
 
 """
-
-lua <<EOF
-require'nvim-web-devicons'.setup {
- color_icons = true;
- default = true;
-}
-EOF
-
 
 " #######################################################################
 " STUFF THAT NEEDS TO BE AT THE END
