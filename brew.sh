@@ -11,4 +11,5 @@ brew install neovim
 brew install tmux
 brew install cmake
 brew install pandoc
+brew install asdf
 
