@@ -41,6 +41,9 @@ Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 
+" Latex
+Plug 'lervag/vimtex'
+
 
 call plug#end()
 
@@ -107,6 +110,11 @@ set softtabstop=4
 
 " show trailing spaces
 set list
+
+" #######################################################################
+" VIMTEX
+"
+let g:vimtex_view_method = 'zathura'
 
 " #######################################################################
 " #######################################################################
@@ -210,6 +218,13 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 require('lspconfig')['pyright'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
+    capabilities = capabilities,
+}
+
+require('lspconfig')['texlab'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
 }
 
 local cmp = require('cmp')
@@ -257,7 +272,8 @@ null_ls.setup({
         null_ls.builtins.formatting.black,
         null_ls.builtins.formatting.prettier,
         null_ls.builtins.diagnostics.flake8,
-    },
+        null_ls.builtins.formatting.latexindent,
+},
 })
 
 vim.keymap.set('n', 'fc', function() vim.lsp.buf.format{ timeout_ms = 2000 } end)

@@ -13,3 +13,5 @@ brew install cmake
 brew install pandoc
 brew install asdf
 
+brew install --cask basictex
+brew install --cask spectacle
