@@ -1,5 +1,5 @@
 session_name: Code
-start_directory: ~/
+start_directory: $(pwd)
 windows:
 - focus: 'true'
   window_name: Main
