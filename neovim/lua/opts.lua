@@ -17,6 +17,7 @@ opt.mouse = ""
 
 -- [[ Theme ]]
 opt.syntax = "ON" -- str:  Allow syntax highlighting
+opt.background = "dark"
 opt.termguicolors = true -- bool: If term supports ui color then enable
 
 -- [[ Search ]]
