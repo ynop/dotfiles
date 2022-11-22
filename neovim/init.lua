@@ -163,3 +163,5 @@ null_ls.setup({
 		null_ls.builtins.code_actions.proselint,
 	},
 })
+
+vim.g.vimtex_view_method = 'zathura'
