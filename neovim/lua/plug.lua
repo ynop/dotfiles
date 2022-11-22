@@ -57,4 +57,10 @@ return require("packer").startup(function(use)
 
     -- Latex
     use({ "lervag/vimtex" })
+
+    -- Bufferline
+    use({
+        "noib3/nvim-cokeline",
+        requires = "kyazdani42/nvim-web-devicons",
+    })
 end)

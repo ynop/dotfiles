@@ -30,5 +30,11 @@ vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 
 -- Formatting / Linting
 vim.keymap.set("n", "fc", function()
-	vim.lsp.buf.format({ timeout_ms = 2000 })
+    vim.lsp.buf.format({ timeout_ms = 2000 })
 end)
+
+-- Bufferline
+map("n", "<leader>h", "<Plug>(cokeline-focus-prev)", {})
+map("n", "<leader>l", "<Plug>(cokeline-focus-next)", {})
+map("n", "<leader>b", "<Plug>(cokeline-pick-focus)", {})
+map("n", "<leader>x", "<Plug>(cokeline-pick-close)", {})
