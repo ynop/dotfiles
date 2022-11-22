@@ -15,7 +15,8 @@ ln -s $(pwd)/ssh/config $HOME/.ssh/config
 ln -s $(pwd)/ssh/connections $HOME/.ssh/connections
 
 mkdir -p $HOME/.config/nvim
-ln -s $(pwd)/neovim/init.vim $HOME/.config/nvim/init.vim
+ln -s $(pwd)/neovim/init.lua $HOME/.config/nvim/init.lua
+ln -s $(pwd)/neovim/lua $HOME/.config/nvim/lua
 
 rm "$HOME/Library/Application Support/Spectacle/Shortcuts.json"
 ln -s $(pwd)/spectacle/Shortcuts.json "$HOME/Library/Application Support/Spectacle/Shortcuts.json"

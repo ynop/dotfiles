@@ -9,44 +9,44 @@ endif
 
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
-Plug 'nvim-tree/nvim-web-devicons'
-Plug 'altercation/vim-colors-solarized'
-
-" Show lines for same indentation
-Plug 'lukas-reineke/indent-blankline.nvim'
-
-" Better Syntax Highlighting
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-" Fuzzy File Search
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
-
-" Status line
-Plug 'nvim-lualine/lualine.nvim'
-
-" File Tree
-Plug 'nvim-tree/nvim-tree.lua'
-
-" LSP
-Plug 'williamboman/mason.nvim'
-Plug 'williamboman/mason-lspconfig.nvim'
-Plug 'neovim/nvim-lspconfig'
-
-" Formatting / Linting
-Plug 'nvim-lua/plenary.nvim'
-Plug 'jose-elias-alvarez/null-ls.nvim'
-
-" Auto Completion
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp'
-
-" Latex
-Plug 'lervag/vimtex'
-
-" Snippets
-Plug 'L3MON4D3/LuaSnip'
-Plug 'saadparwaiz1/cmp_luasnip'
+"Plug 'nvim-tree/nvim-web-devicons'
+"Plug 'altercation/vim-colors-solarized'
+"
+"" Show lines for same indentation
+"Plug 'lukas-reineke/indent-blankline.nvim'
+"
+"" Better Syntax Highlighting
+"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+"
+"" Fuzzy File Search
+"Plug 'nvim-lua/plenary.nvim'
+"Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+"
+"" Status line
+"Plug 'nvim-lualine/lualine.nvim'
+"
+"" File Tree
+"Plug 'nvim-tree/nvim-tree.lua'
+"
+"" LSP
+"Plug 'williamboman/mason.nvim'
+"Plug 'williamboman/mason-lspconfig.nvim'
+"Plug 'neovim/nvim-lspconfig'
+"
+"" Formatting / Linting
+"Plug 'nvim-lua/plenary.nvim'
+"Plug 'jose-elias-alvarez/null-ls.nvim'
+"
+"" Auto Completion
+"Plug 'hrsh7th/nvim-cmp'
+"Plug 'hrsh7th/cmp-nvim-lsp'
+"
+"" Latex
+"Plug 'lervag/vimtex'
+"
+"" Snippets
+"Plug 'L3MON4D3/LuaSnip'
+"Plug 'saadparwaiz1/cmp_luasnip'
 
 
 call plug#end()
@@ -301,6 +301,7 @@ null_ls.setup({
         null_ls.builtins.formatting.prettier,
         null_ls.builtins.diagnostics.flake8,
         null_ls.builtins.formatting.latexindent,
+        null_ls.builtins.code_actions.proselint,
 },
 })
 
