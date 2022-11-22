@@ -38,3 +38,10 @@ map("n", "<leader>h", "<Plug>(cokeline-focus-prev)", {})
 map("n", "<leader>l", "<Plug>(cokeline-focus-next)", {})
 map("n", "<leader>b", "<Plug>(cokeline-pick-focus)", {})
 map("n", "<leader>x", "<Plug>(cokeline-pick-close)", {})
+
+-- Trouble
+map("n", "<leader>tt", ":TroubleToggle<CR>", {})
+map("n", "<leader>tw", ":TroubleToggle workspace_diagnostics<CR>", {})
+map("n", "<leader>td", ":TroubleToggle document_diagnostics<CR>", {})
+map("n", "<leader>tq", ":TroubleToggle quickfix<CR>", {})
+map("n", "<leader>tl", ":TroubleToggle loclist<CR>", {})

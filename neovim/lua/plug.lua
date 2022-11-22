@@ -63,4 +63,10 @@ return require("packer").startup(function(use)
         "noib3/nvim-cokeline",
         requires = "kyazdani42/nvim-web-devicons",
     })
+
+    -- Trouble
+    use({
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+    })
 end)

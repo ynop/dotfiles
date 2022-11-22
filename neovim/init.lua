@@ -203,4 +203,7 @@ require("cokeline").setup({
 	},
 })
 
+
+require("trouble").setup()
+
 require("nvim-treesitter.configs").setup({ highlight = { enable = true } })
