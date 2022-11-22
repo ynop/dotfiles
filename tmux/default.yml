@@ -1,12 +1,12 @@
 session_name: Code
-start_directory: $(pwd)
+start_directory: ${PWD}
 windows:
-- focus: 'true'
-  window_name: Main
-  layout: 4d0b,142x80,0,0{91x80,0,0,0,50x80,92,0[50x40,92,0,1,50x39,92,41,2]}
-  options: {}
-  panes:
-  - focus: 'true'
-    shell_command: nvim
-  -
-  - git status
+  - focus: "true"
+    window_name: Main
+    layout: 4d0b,142x80,0,0{91x80,0,0,0,50x80,92,0[50x40,92,0,1,50x39,92,41,2]}
+    options: {}
+    panes:
+      - focus: "true"
+        shell_command: nvim
+      -
+      - git status
