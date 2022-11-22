@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.g.localleader = "\\"
+vim.g.localleader = ","
 
 -- IMPORTS
 require("vars")
@@ -164,4 +164,6 @@ null_ls.setup({
 	},
 })
 
-vim.g.vimtex_view_method = 'zathura'
+vim.g.vimtex_view_method = "zathura"
+
+require("nvim-treesitter.configs").setup({ highlight = { enable = true } })

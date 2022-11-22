@@ -4,6 +4,12 @@ return require("packer").startup(function(use)
     -- Colorscheme
     use("morhetz/gruvbox")
 
+    -- Treesitter
+    use({
+        "nvim-treesitter/nvim-treesitter",
+        run = ":TSUpdate",
+    })
+
     -- nvim tree
     use({
         "nvim-tree/nvim-tree.lua",
