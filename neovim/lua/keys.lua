@@ -11,6 +11,9 @@ map("n", "<C-H>", "<C-W><C-H>", {})
 -- Search by selection
 vim.cmd('vnoremap // y/<C-R>"<CR>')
 
+-- Copy to system clipboard
+map("v", "<leader>c", '"*y', {})
+
 -- Toggle nvim-tree
 map("n", "<C-n>", [[:NvimTreeToggle<CR>]], {})
 
@@ -30,7 +33,7 @@ vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 
 -- Formatting / Linting
 vim.keymap.set("n", "fc", function()
-    vim.lsp.buf.format({ timeout_ms = 2000 })
+	vim.lsp.buf.format({ timeout_ms = 2000 })
 end)
 
 -- Bufferline
