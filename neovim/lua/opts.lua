@@ -1,4 +1,5 @@
 local opt = vim.opt
+local g = vim.g
 
 -- [[ Filetypes ]]
 opt.encoding = "utf8" -- str:  String encoding to use
@@ -19,6 +20,7 @@ opt.mouse = ""
 opt.syntax = "ON" -- str:  Allow syntax highlighting
 opt.background = "dark"
 opt.termguicolors = true -- bool: If term supports ui color then enable
+g.t_co = 256
 
 -- [[ Search ]]
 opt.ignorecase = true -- bool: Ignore case in search patterns

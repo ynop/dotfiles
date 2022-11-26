@@ -9,7 +9,7 @@ map("n", "<C-L>", "<C-W><C-L>", {})
 map("n", "<C-H>", "<C-W><C-H>", {})
 
 -- Search by selection
-vim.cmd('vnoremap // y/<C-R>"<CR>')
+map("v", "//", 'y/<C-R>"<CR>', {})
 
 -- Copy to system clipboard
 map("v", "<leader>c", '"*y', {})
