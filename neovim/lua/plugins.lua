@@ -107,4 +107,19 @@ return require("packer").startup(function(use)
 			require("trouble").setup()
 		end,
 	})
+
+	-- Testing
+	use({
+		"nvim-neotest/neotest",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"antoinemadec/FixCursorHold.nvim",
+			"nvim-neotest/neotest-python",
+			"nvim-neotest/neotest-plenary",
+		},
+		config = function()
+			require("config.testing").setup()
+		end,
+	})
 end)

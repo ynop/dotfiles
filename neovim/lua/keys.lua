@@ -43,8 +43,9 @@ map("n", "<leader>b", "<Plug>(cokeline-pick-focus)", {})
 map("n", "<leader>x", "<Plug>(cokeline-pick-close)", {})
 
 -- Trouble
-map("n", "<leader>tt", ":TroubleToggle<CR>", {})
-map("n", "<leader>tw", ":TroubleToggle workspace_diagnostics<CR>", {})
-map("n", "<leader>td", ":TroubleToggle document_diagnostics<CR>", {})
-map("n", "<leader>tq", ":TroubleToggle quickfix<CR>", {})
-map("n", "<leader>tl", ":TroubleToggle loclist<CR>", {})
+map("n", "<leader>ot", ":TroubleToggle<CR>", {})
+map("n", "<leader>ow", ":TroubleToggle workspace_diagnostics<CR>", {})
+map("n", "<leader>od", ":TroubleToggle document_diagnostics<CR>", {})
+map("n", "<leader>oq", ":TroubleToggle quickfix<CR>", {})
+map("n", "<leader>ol", ":TroubleToggle loclist<CR>", {})
+
