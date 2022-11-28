@@ -122,4 +122,15 @@ return require("packer").startup(function(use)
 			require("config.testing").setup()
 		end,
 	})
+
+	-- Debugging
+	use({
+		"mfussenegger/nvim-dap",
+		requires = {
+			"mfussenegger/nvim-dap-python",
+		},
+		config = function()
+			require("config.debugging").setup()
+		end,
+	})
 end)
