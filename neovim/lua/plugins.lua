@@ -134,4 +134,15 @@ return require("packer").startup(function(use)
 			require("config.debugging").setup()
 		end,
 	})
+
+	-- Project level settings
+	use({
+		"MunifTanjim/exrc.nvim",
+		requires = {
+			"MunifTanjim/nui.nvim",
+		},
+		config = function()
+			require("config.localconfig").setup()
+		end,
+	})
 end)
