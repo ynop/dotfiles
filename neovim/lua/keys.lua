@@ -19,7 +19,7 @@ map("n", "<C-n>", [[:NvimTreeToggle<CR>]], {})
 
 -- Telescope
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
+vim.keymap.set("n", "<leader>ff", builtin.find_files , {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
@@ -48,4 +48,3 @@ map("n", "<leader>ow", ":TroubleToggle workspace_diagnostics<CR>", {})
 map("n", "<leader>od", ":TroubleToggle document_diagnostics<CR>", {})
 map("n", "<leader>oq", ":TroubleToggle quickfix<CR>", {})
 map("n", "<leader>ol", ":TroubleToggle loclist<CR>", {})
-

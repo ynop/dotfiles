@@ -145,4 +145,17 @@ return require("packer").startup(function(use)
 			require("config.localconfig").setup()
 		end,
 	})
+
+	-- Editorconfig
+	use({
+		"gpanders/editorconfig.nvim",
+	})
+
+	-- Splits
+	use({
+		"mrjones2014/smart-splits.nvim",
+		config = function()
+			require("config.splits").setup()
+		end,
+	})
 end)
