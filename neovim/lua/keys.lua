@@ -23,7 +23,7 @@ function M.setup_main_keymaps()
 		{ "]d", vim.diagnostic.goto_next, description = "goto previous diagnostic", diagnostic_opts },
 		-- LSP
 		{
-			"<leader>fc",
+			"fc",
 			toolbox.lazy(vim.lsp.buf.format, { timeout_ms = 2000 }),
 			description = "format current buffer",
 		},
@@ -87,6 +87,72 @@ function M.setup_testing_keymaps()
 		{ "<leader>ts", neotest.summary.toggle, description = "show test summary window" },
 		{ "<leader>to", neotest.output.open, description = "show output of test" },
 		{ "<leader>tp", neotest.output_panel.toggle, description = "show test outputs in window" },
+	})
+end
+
+function M.setup_debug_keymaps()
+	local legend = require("legendary")
+	local dap = require("dap")
+	local debugging = require("config.debugging")
+	legend.keymaps({
+		{ "<leader>dc", dap.continue, description = "debug continue/run" },
+		{ "<leader>dl", dap.run_last, description = "debug last" },
+		{ "<leader>dt", dap.toggle_breakpoint, description = "toggle debug breakpoint" },
+		{ "<leader>di", dap.step_into, description = "debug step into" },
+		{ "<leader>do", dap.step_over, description = "debug step over" },
+		{ "<leader>ds", debugging.view_scopes, description = "open debug scopes in window" },
+		{ "<leader>df", debugging.view_frames, description = "open debug frames in window" },
+		{ "<leader>dh", debugging.hover, description = "show debug info in floating window" },
+		{ "<leader>dr", dap.repl.open, description = "inspect debug state with built-in REPL" },
+	})
+end
+
+function M.setup_split_keymaps()
+	local legend = require("legendary")
+	local ss = require("smart-splits")
+
+	legend.keymaps({
+		{ "<C-K>", ss.move_cursor_up, description = "Move to split above" },
+		{ "<C-J>", ss.move_cursor_down, description = "Move to split below" },
+		{ "<C-H>", ss.move_cursor_left, description = "Move to split to the left" },
+		{ "<C-L>", ss.move_cursor_right, description = "Move to split to the right" },
+		{ "\x1bk", ss.resize_up, description = "Resize split at the top" },
+		{ "\x1bj", ss.resize_down, description = "Resize split at the bottom" },
+		{ "\x1bh", ss.resize_left, description = "Resize split at the left side" },
+		{ "\x1bl", ss.resize_right, description = "Resize split at the right side" },
+		{ "<leader>s", ss.start_resize_mode, description = "Start split resize mode" },
+	})
+end
+
+function M.setup_lsp_buffer_keymaps(bufnr)
+	local legend = require("legendary")
+	local toolbox = require("legendary.toolbox")
+
+	local bufopts = { noremap = true, silent = true, buffer = bufnr }
+
+	legend.keymaps({
+		{ "gd", vim.lsp.buf.definition, description = "LSP go to definition", opts = bufopts },
+		{ "gc", vim.lsp.buf.declaration, description = "LSP go to declaration", opts = bufopts },
+		{ "K", vim.lsp.buf.hover, description = "LSP hover", opts = bufopts },
+		{ "gi", vim.lsp.buf.implementation, description = "LSP goto implementation", opts = bufopts },
+		{ "gh", vim.lsp.buf.signature_help, description = "LSP show signature help", opts = bufopts },
+		{ "<leader>wa", vim.lsp.buf.add_workspace_folder, description = "LSP add workspace folder", opts = bufopts },
+		{
+			"<leader>wr",
+			vim.lsp.buf.remove_workspace_folder,
+			description = "LSP remove workspace folder",
+			opts = bufopts,
+		},
+		{
+			"<leader>wl",
+			toolbox.lazy(vim.inspect, vim.lsp.buf.list_workspace_folders()),
+			description = "LSP list workspace folders",
+			opts = bufopts,
+		},
+		{ "gt", vim.lsp.buf.type_definition, description = "LSP go to type definition", opts = bufopts },
+		{ "<leader>rn", vim.lsp.buf.rename, description = "LSP rename", opts = bufopts },
+		{ "<leader>ca", vim.lsp.buf.code_action, description = "LSP code action", opts = bufopts },
+		{ "gr", vim.lsp.buf.references, description = "LSP list references", opts = bufopts },
 	})
 end
 

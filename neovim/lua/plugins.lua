@@ -138,7 +138,7 @@ return require("packer").startup(function(use)
 		},
 		config = function()
 			require("config.testing").setup()
-            require("keys").setup_testing_keymaps()
+			require("keys").setup_testing_keymaps()
 		end,
 	})
 
@@ -150,6 +150,7 @@ return require("packer").startup(function(use)
 		},
 		config = function()
 			require("config.debugging").setup()
+            require("keys").setup_debug_keymaps()
 		end,
 	})
 
@@ -173,7 +174,7 @@ return require("packer").startup(function(use)
 	use({
 		"mrjones2014/smart-splits.nvim",
 		config = function()
-			require("config.splits").setup()
+			require("keys").setup_split_keymaps()
 		end,
 	})
 end)
