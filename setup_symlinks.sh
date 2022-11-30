@@ -1,11 +1,11 @@
-ln -s $(pwd)/.zshrc $HOME/.zshrc
+ln -s $(pwd)/dot_zshrc $HOME/.zshrc
 
-ln -s $(pwd)/git/.gitconfig $HOME/.gitconfig
-ln -s $(pwd)/git/.gitignore_global $HOME/.gitignore_global
+ln -s $(pwd)/git/dot_gitconfig $HOME/.gitconfig
+ln -s $(pwd)/git/dot_gitignore_global $HOME/.gitignore_global
 
-ln -s $(pwd)/.alacritty.yml $HOME/.alacritty.yml
+ln -s $(pwd)/dot_alacritty.yml $HOME/.alacritty.yml
 
-ln -s $(pwd)/tmux/.tmux.conf $HOME/.tmux.conf
+ln -s $(pwd)/tmux/dot_tmux.conf $HOME/.tmux.conf
 
 mkdir -p $HOME/.tmuxp
 ln -s $(pwd)/tmux/default.yml $HOME/.tmuxp/default.yml
