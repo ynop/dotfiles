@@ -9,6 +9,18 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- UI
+	use({ "stevearc/dressing.nvim" })
+
+	-- Legendary
+	use({
+		"mrjones2014/legendary.nvim",
+		config = function()
+			require("legendary").setup()
+			require("keys").setup_legendary_keymaps()
+		end,
+	})
+
 	-- Treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -25,8 +37,8 @@ return require("packer").startup(function(use)
 			"nvim-tree/nvim-web-devicons", -- optional, for file icons
 		},
 		tag = "nightly", -- optional, updated every week. (see issue #1193)
-		cmd = { "NvimTreeToggle", "NvimTreeClose" },
 		config = function()
+			require("keys").setup_tree_keymaps()
 			require("nvim-tree").setup({})
 		end,
 	})
@@ -36,6 +48,9 @@ return require("packer").startup(function(use)
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.0",
 		requires = { { "nvim-lua/plenary.nvim" } },
+		config = function()
+			require("keys").setup_telescope_keymaps()
+		end,
 	})
 
 	-- lualine
@@ -97,6 +112,7 @@ return require("packer").startup(function(use)
 		requires = "kyazdani42/nvim-web-devicons",
 		config = function()
 			require("config.bufferline").setup()
+			require("keys").setup_bufferline_keymaps()
 		end,
 	})
 
@@ -106,6 +122,7 @@ return require("packer").startup(function(use)
 		requires = "kyazdani42/nvim-web-devicons",
 		config = function()
 			require("trouble").setup()
+			require("keys").setup_trouble_keymaps()
 		end,
 	})
 
@@ -121,6 +138,7 @@ return require("packer").startup(function(use)
 		},
 		config = function()
 			require("config.testing").setup()
+            require("keys").setup_testing_keymaps()
 		end,
 	})
 

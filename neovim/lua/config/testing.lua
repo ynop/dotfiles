@@ -1,8 +1,5 @@
 local neotest = require("neotest")
 
-local function runOnCurrentFile()
-	neotest.run.run(vim.fn.expand("%"))
-end
 
 local M = {}
 
@@ -15,13 +12,10 @@ function M.setup()
 			require("neotest-plenary"),
 		},
 	})
+end
 
-	vim.keymap.set("n", "<leader>tn", neotest.run.run, {})
-	vim.keymap.set("n", "<leader>tf", runOnCurrentFile, {})
-	vim.keymap.set("n", "<leader>ta", neotest.run.attach, {})
-	vim.keymap.set("n", "<leader>ts", neotest.summary.toggle, {})
-	vim.keymap.set("n", "<leader>to", neotest.output.open, {})
-	vim.keymap.set("n", "<leader>tp", neotest.output_panel.toggle, {})
+function M.run_on_current_file()
+	neotest.run.run(vim.fn.expand("%"))
 end
 
 return M
