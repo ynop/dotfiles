@@ -15,8 +15,10 @@ return require("packer").startup(function(use)
     -- Legendary
     use({
         "mrjones2014/legendary.nvim",
+        as = "legendary",
         config = function()
             require("legendary").setup()
+            require("keys").setup_main_keymaps()
             require("keys").setup_legendary_keymaps()
         end,
     })
@@ -37,6 +39,7 @@ return require("packer").startup(function(use)
             "nvim-tree/nvim-web-devicons", -- optional, for file icons
         },
         tag = "nightly", -- optional, updated every week. (see issue #1193)
+        after = "legendary",
         config = function()
             require("keys").setup_tree_keymaps()
             require("nvim-tree").setup({})
@@ -50,6 +53,7 @@ return require("packer").startup(function(use)
         requires = {
             "nvim-lua/plenary.nvim",
         },
+        after = "legendary",
         config = function()
             require("keys").setup_telescope_keymaps()
         end,
@@ -112,6 +116,7 @@ return require("packer").startup(function(use)
     use({
         "noib3/nvim-cokeline",
         requires = "kyazdani42/nvim-web-devicons",
+        after = "legendary",
         config = function()
             require("config.bufferline").setup()
             require("keys").setup_bufferline_keymaps()
@@ -122,6 +127,7 @@ return require("packer").startup(function(use)
     use({
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
+        after = "legendary",
         config = function()
             require("trouble").setup()
             require("keys").setup_trouble_keymaps()
@@ -138,6 +144,7 @@ return require("packer").startup(function(use)
             "nvim-neotest/neotest-python",
             "nvim-neotest/neotest-plenary",
         },
+        after = "legendary",
         config = function()
             require("config.testing").setup()
             require("keys").setup_testing_keymaps()
@@ -150,6 +157,7 @@ return require("packer").startup(function(use)
         requires = {
             "mfussenegger/nvim-dap-python",
         },
+        after = "legendary",
         config = function()
             require("config.debugging").setup()
             require("keys").setup_debug_keymaps()
@@ -175,6 +183,7 @@ return require("packer").startup(function(use)
     -- Splits
     use({
         "mrjones2014/smart-splits.nvim",
+        after = "legendary",
         config = function()
             require("keys").setup_split_keymaps()
         end,
