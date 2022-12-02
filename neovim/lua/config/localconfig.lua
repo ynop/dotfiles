@@ -4,14 +4,14 @@ local M = {}
 vim.o.exrc = false
 
 function M.setup()
-	require("exrc").setup({
-		files = {
-			".nvimrc.lua",
-			".nvimrc",
-			".exrc.lua",
-			".exrc",
-		},
-	})
+    require("exrc").setup({
+        files = {
+            ".nvimrc.lua",
+            ".nvimrc",
+            ".exrc.lua",
+            ".exrc",
+        },
+    })
 end
 
 return M

@@ -22,7 +22,7 @@ function M.setup_main_keymaps()
         { "]d", vim.diagnostic.goto_next, description = "goto previous diagnostic", diagnostic_opts },
         -- LSP
         {
-            "<leader>f",
+            "<leader>fc",
             toolbox.lazy(vim.lsp.buf.format, { timeout_ms = 2000 }),
             description = "format current buffer",
         },
