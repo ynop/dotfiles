@@ -11,7 +11,9 @@ function M.setup()
         },
     })
 
-    require("mason-lspconfig").setup()
+    require("mason-lspconfig").setup({
+        automatic_installation = true,
+    })
 
     -- Use an on_attach function to only map the following keys
     -- after the language server attaches to the current buffer
