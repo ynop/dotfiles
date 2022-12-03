@@ -39,6 +39,25 @@ function M.setup()
         on_attach = on_attach,
         flags = lsp_flags,
         capabilities = capabilities,
+        settings = {
+            texlab = {
+                build = {
+                    executable = "lualatex",
+                    args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+                    onSave = true,
+                },
+                forwardSearch = {
+                    executable = "zathura",
+                    args = {
+                        '--synctex-editor-command',
+                        [[nvim-texlabconfig -file '%{input}' -line %{line}]],
+                        '--synctex-forward',
+                        '%l:1:%f',
+                        '%p',
+                    }
+                }
+            },
+        }
     })
 
     require("lspconfig")["sumneko_lua"].setup({

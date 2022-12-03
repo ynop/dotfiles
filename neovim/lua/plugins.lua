@@ -117,14 +117,6 @@ return require("packer").startup(function(use)
         },
     })
 
-    -- Latex
-    use({
-        "lervag/vimtex",
-        config = function()
-            require("config.tex").setup()
-        end,
-    })
-
     -- Bufferline
     use({
         "noib3/nvim-cokeline",
@@ -205,4 +197,15 @@ return require("packer").startup(function(use)
     if packer_bootstrap then
         require("packer").sync()
     end
+
+    -- Latex
+    use({
+        "f3fora/nvim-texlabconfig",
+        config = function()
+            require("texlabconfig").setup()
+        end,
+        -- ft = { 'tex', 'bib' }, -- for lazy loading
+        run = "go build"
+        -- run = 'go build -o ~/.bin/' if e.g. ~/.bin/ is in $PATH
+    })
 end)
