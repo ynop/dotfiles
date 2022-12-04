@@ -1,0 +1,18 @@
+brew 'git'
+brew 'neovim'
+brew 'tmux'
+brew 'cmake'
+brew 'pandoc'
+brew 'asdf'
+brew 'fd'
+brew 'ripgrep'
+brew 'zathura'
+brew 'zathura-pdf-poppler'
+
+cask 'alacritty'
+cask 'google-drive'
+cask 'basictex'
+cask 'spectacle'
+cask 'brave-browser'
+
+mas '1Password', id: 1333542190
