@@ -1,0 +1,23 @@
+[credential]
+	helper = osxkeychain
+[user]
+	name = ynop
+	email = m.buechi@outlook.com
+[core]
+	editor = nvim
+	excludesfile = ~/.gitignore_global
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[alias]
+	cm = commit -m
+	lg = log --oneline -n 10
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[push]
+	default = simple
