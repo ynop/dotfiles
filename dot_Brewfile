@@ -1,3 +1,5 @@
+tap 'zegervdv/zathura'
+
 brew 'git'
 brew 'neovim'
 brew 'tmux'
