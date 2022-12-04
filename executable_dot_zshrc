@@ -1,8 +1,5 @@
 alias ll="ls -la"
 
-export VISUAL=nvim
-export EDITOR="$VISUAL"
-
 # ASDF
 . /usr/local/opt/asdf/libexec/asdf.sh
 . ~/.asdf/plugins/java/set-java-home.zsh
