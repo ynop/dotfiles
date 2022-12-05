@@ -1,4 +1,4 @@
-# dot-files
+# dotfiles
 Using [chezmoi](https://www.chezmoi.io/) to set up dot-files, packages, ...
 
 ## Bootstrap
