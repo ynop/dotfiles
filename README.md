@@ -1,6 +1,13 @@
 # dot-files
+Using [chezmoi](https://www.chezmoi.io/) to set up dot-files, packages, ...
 
 ## Bootstrap
-``` brew install chezmoi ```
+Install chezmoi
+``` 
+brew install chezmoi
+```
 
-``` chezmoi init git@github.com:ynop/dot-files.git ```
+Setup from repo
+``` 
+chezmoi init --apply git@github.com:ynop/dot-files.git
+```
