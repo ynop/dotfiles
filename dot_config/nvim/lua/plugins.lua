@@ -208,4 +208,8 @@ return require("packer").startup(function(use)
         run = "go build"
         -- run = 'go build -o ~/.bin/' if e.g. ~/.bin/ is in $PATH
     })
+
+    use({
+        "ii14/neorepl.nvim"
+    })
 end)
