@@ -1,4 +1,5 @@
 tap 'zegervdv/zathura'
+tap 'hashicorp/tap'
 
 brew 'git'
 brew 'neovim'
@@ -12,6 +13,7 @@ brew 'ripgrep'
 brew 'zathura'
 brew 'zathura-pdf-poppler'
 brew 'tldr'
+brew 'terraform'
 
 cask 'alacritty'
 cask 'google-drive'
