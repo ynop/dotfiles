@@ -5,5 +5,6 @@ asdf plugin add nodejs
 asdf plugin add java
 asdf plugin add lua
 asdf plugin add golang
+asdf plugin add poetry
 
 asdf install
