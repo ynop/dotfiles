@@ -6,13 +6,13 @@ function M.setup()
         default_hl = {
             fg = function(buffer)
                 if buffer.is_focused then
-                    return "#fbf1c7"
+                    return "#282828"
                 end
                 return "#282828"
             end,
             bg = function(buffer)
                 if buffer.is_focused then
-                    return "#d65d0e"
+                    return "#d79921"
                 end
                 return "#A89984"
             end,
@@ -20,13 +20,14 @@ function M.setup()
         components = {
             {
                 text = function(buffer)
-                    return (buffer.index ~= 1) and "▏" or ""
+                    return buffer.is_first and "▏" or ""
                 end,
             },
             {
                 text = function(buffer)
                     return " " .. buffer.pick_letter
                 end,
+                style = "bold",
             },
             {
                 text = function(buffer)
@@ -34,7 +35,16 @@ function M.setup()
                 end,
             },
             {
+                text = function(buffer)
+                    return buffer.is_modified and "● " or ""
+                end,
+                fg = function(buffer)
+                    return buffer.is_modified and "#cc241d" or nil
+                end,
+            },
+            {
                 text = " ",
+                bg = "#3c3836",
             },
         },
     })
