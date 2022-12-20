@@ -20,5 +20,6 @@ cask 'google-drive'
 cask 'basictex'
 cask 'spectacle'
 cask 'brave-browser'
+cask 'docker'
 
 mas '1Password', id: 1333542190
