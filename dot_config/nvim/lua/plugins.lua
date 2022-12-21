@@ -19,6 +19,7 @@ return require("packer").startup(function(use)
         "morhetz/gruvbox",
         config = function()
             vim.cmd("colorscheme gruvbox")
+            vim.cmd("highlight Normal ctermfg=223 ctermbg=none guifg=#ebdbb2 guibg=none")
         end,
     })
 
