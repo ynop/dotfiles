@@ -125,7 +125,7 @@ return require("packer").startup(function(use)
         },
     })
 
-    -- Bufferline
+    -- Buffers
     use({
         "noib3/nvim-cokeline",
         requires = "kyazdani42/nvim-web-devicons",
@@ -133,6 +133,14 @@ return require("packer").startup(function(use)
         config = function()
             require("config.bufferline").setup()
             require("keys").setup_bufferline_keymaps()
+        end,
+    })
+
+    use({
+        "kazhala/close-buffers.nvim",
+        after = "legendary",
+        config = function()
+            require("keys").setup_buffer_commands()
         end,
     })
 

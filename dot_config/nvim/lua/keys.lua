@@ -56,7 +56,9 @@ function M.setup_telescope_keymaps()
         { "<leader>fh", builtin.help_tags, description = "find help tags" },
         { "<leader>fq", builtin.quickfix, description = "find items in quickfix list" },
         { "<leader>fl", builtin.loclist, description = "find items in location list" },
-        { "<leader>fr", builtin.loclist, description = "find register" },
+        { "<leader>fr", builtin.registers, description = "find register" },
+        { "<leader>fk", builtin.keymaps, description = "find register" },
+        { "<leader>fe", builtin.commands, description = "find command" },
         {
             "<leader>fd",
             toolbox.lazy(builtin.diagnostics, { bufnr = 0 }),
@@ -84,6 +86,17 @@ function M.setup_bufferline_keymaps()
         { "<leader>l", "<Plug>(cokeline-focus-next)", description = "move to next buffer" },
         { "<leader>b", "<Plug>(cokeline-pick-focus)", description = "move to buffer by index" },
         { "<leader>x", "<Plug>(cokeline-pick-close)", description = "close buffer by index" },
+    })
+end
+
+function M.setup_buffer_commands()
+    local legend = require("legendary")
+    local cb = require("close_buffers")
+    local toolbox = require("legendary.toolbox")
+    legend.commands({
+        { ":CloseHiddenBuffers",
+            toolbox.lazy(cb.delete, { type = "hidden" }),
+            description = "Close all inactive/hidden buffers" },
     })
 end
 
