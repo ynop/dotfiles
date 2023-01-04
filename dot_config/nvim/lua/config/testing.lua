@@ -11,6 +11,10 @@ function M.setup()
             }),
             require("neotest-plenary"),
         },
+        quickfix = {
+            enabled = true,
+            open = false
+        },
     })
 end
 

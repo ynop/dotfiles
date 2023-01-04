@@ -104,9 +104,13 @@ function M.setup_testing_keymaps()
     local legend = require("legendary")
     local neotest = require("neotest")
     local testing = require("config.testing")
+    local toolbox = require("legendary.toolbox")
     legend.keymaps({
         { "<leader>tn", neotest.run.run, description = "run nearest test" },
+        { "<leader>tk", neotest.stop, description = "stop the nearest test" },
+        { "<leader>tl", neotest.run.run_last, description = "re-run last executed test" },
         { "<leader>tf", testing.run_on_current_file, description = "run tests in current file" },
+        { "<leader>td", toolbox.lazy(neotest.run.run, {strategy = "dap"}), description = "run tests in current file" },
         { "<leader>ta", neotest.run.attach, description = "attach to the nearest test" },
         { "<leader>ts", neotest.summary.toggle, description = "show test summary window" },
         { "<leader>to", neotest.output.open, description = "show output of test" },
@@ -128,6 +132,7 @@ function M.setup_debug_keymaps()
         { "<leader>df", debugging.view_frames, description = "open debug frames in window" },
         { "<leader>dh", debugging.hover, description = "show debug info in floating window" },
         { "<leader>dr", dap.repl.open, description = "inspect debug state with built-in REPL" },
+        { "<leader>dk", dap.terminate, description = "terminate the debug session" },
     })
 end
 
