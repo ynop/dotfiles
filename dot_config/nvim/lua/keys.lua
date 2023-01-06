@@ -110,7 +110,7 @@ function M.setup_testing_keymaps()
         { "<leader>tk", neotest.stop, description = "stop the nearest test" },
         { "<leader>tl", neotest.run.run_last, description = "re-run last executed test" },
         { "<leader>tf", testing.run_on_current_file, description = "run tests in current file" },
-        { "<leader>td", toolbox.lazy(neotest.run.run, {strategy = "dap"}), description = "run tests in current file" },
+        { "<leader>td", toolbox.lazy(neotest.run.run, { strategy = "dap" }), description = "run tests in current file" },
         { "<leader>ta", neotest.run.attach, description = "attach to the nearest test" },
         { "<leader>ts", neotest.summary.toggle, description = "show test summary window" },
         { "<leader>to", neotest.output.open, description = "show output of test" },
@@ -121,6 +121,7 @@ end
 function M.setup_debug_keymaps()
     local legend = require("legendary")
     local dap = require("dap")
+    local dapui = require("dapui")
     local debugging = require("config.debugging")
     legend.keymaps({
         { "<leader>dc", dap.continue, description = "debug continue/run" },
@@ -133,6 +134,7 @@ function M.setup_debug_keymaps()
         { "<leader>dh", debugging.hover, description = "show debug info in floating window" },
         { "<leader>dr", dap.repl.open, description = "inspect debug state with built-in REPL" },
         { "<leader>dk", dap.terminate, description = "terminate the debug session" },
+        { "<leader>du", dapui.toggle, description = "toggle (open/close) dap ui" },
     })
 end
 

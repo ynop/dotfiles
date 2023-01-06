@@ -177,6 +177,9 @@ return require("packer").startup(function(use)
         "mfussenegger/nvim-dap",
         requires = {
             "mfussenegger/nvim-dap-python",
+            "rcarriga/nvim-dap-ui",
+            "theHamsta/nvim-dap-virtual-text",
+            "nvim-telescope/telescope-dap.nvim",
         },
         after = "legendary",
         config = function()

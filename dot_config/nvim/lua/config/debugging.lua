@@ -16,6 +16,14 @@ function M.hover()
 end
 
 function M.setup()
+    require("dapui").setup()
+
+    require("nvim-dap-virtual-text").setup {
+        commented = true,
+    }
+
+    require('telescope').load_extension('dap')
+
     require("dap-python").setup("~/.venvs/debugpy/bin/python")
 end
 
