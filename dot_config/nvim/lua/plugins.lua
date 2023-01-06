@@ -63,6 +63,7 @@ return require("packer").startup(function(use)
     -- telescope
     use({
         "nvim-telescope/telescope.nvim",
+        as = "telescope",
         tag = "0.1.0",
         requires = {
             "nvim-lua/plenary.nvim",
@@ -181,7 +182,7 @@ return require("packer").startup(function(use)
             "theHamsta/nvim-dap-virtual-text",
             "nvim-telescope/telescope-dap.nvim",
         },
-        after = "legendary",
+        after = "telescope",
         config = function()
             require("config.debugging").setup()
             require("keys").setup_debug_keymaps()
