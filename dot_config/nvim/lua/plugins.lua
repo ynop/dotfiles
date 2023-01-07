@@ -189,17 +189,6 @@ return require("packer").startup(function(use)
         end,
     })
 
-    -- Project level settings
-    use({
-        "MunifTanjim/exrc.nvim",
-        requires = {
-            "MunifTanjim/nui.nvim",
-        },
-        config = function()
-            require("config.localconfig").setup()
-        end,
-    })
-
     -- Editorconfig
     use({
         "gpanders/editorconfig.nvim",

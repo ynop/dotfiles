@@ -41,3 +41,6 @@ opt.splitbelow = true -- bool: Place new window below the current one
 
 -- [[ Wildmenu ]]
 opt.wildmode = "longest,list" -- Bash like completions (e.g. when entering a file path)
+
+-- [[ Div ]] 
+vim.o.exrc = true
