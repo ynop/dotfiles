@@ -189,6 +189,15 @@ return require("packer").startup(function(use)
         end,
     })
 
+    -- Code Documentation
+    use ({
+        'kkoomen/vim-doge',
+        run = ':call doge#install()',
+        config = function()
+            vim.g.doge_doc_standard_python = 'google'
+        end,
+    })
+
     -- Editorconfig
     use({
         "gpanders/editorconfig.nvim",
@@ -203,10 +212,6 @@ return require("packer").startup(function(use)
         end,
     })
 
-    if packer_bootstrap then
-        require("packer").sync()
-    end
-
     -- Latex
     use({
         "f3fora/nvim-texlabconfig",
@@ -218,7 +223,13 @@ return require("packer").startup(function(use)
         -- run = 'go build -o ~/.bin/' if e.g. ~/.bin/ is in $PATH
     })
 
+    -- Div
     use({
         "ii14/neorepl.nvim"
     })
+
+    if packer_bootstrap then
+        require("packer").sync()
+    end
+
 end)

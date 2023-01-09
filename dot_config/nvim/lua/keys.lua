@@ -107,13 +107,12 @@ function M.setup_testing_keymaps()
     local toolbox = require("legendary.toolbox")
     legend.keymaps({
         { "<leader>tn", neotest.run.run, description = "run nearest test" },
-        { "<leader>tk", neotest.stop, description = "stop the nearest test" },
         { "<leader>tl", neotest.run.run_last, description = "re-run last executed test" },
         { "<leader>tf", testing.run_on_current_file, description = "run tests in current file" },
         { "<leader>td", toolbox.lazy(neotest.run.run, { strategy = "dap" }), description = "run tests in current file" },
         { "<leader>ta", neotest.run.attach, description = "attach to the nearest test" },
         { "<leader>ts", neotest.summary.toggle, description = "show test summary window" },
-        { "<leader>to", neotest.output.open, description = "show output of test" },
+        { "<leader>to", toolbox.lazy(neotest.output.open, { enter = true }), description = "show output of test" },
         { "<leader>tp", neotest.output_panel.toggle, description = "show test outputs in window" },
     })
 end
