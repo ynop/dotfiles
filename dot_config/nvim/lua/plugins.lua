@@ -46,7 +46,7 @@ return require("packer").startup(function(use)
         end,
     })
 
-    -- nvim tree
+    -- File Tree
     use({
         "nvim-tree/nvim-tree.lua",
         requires = {
@@ -60,7 +60,7 @@ return require("packer").startup(function(use)
         end,
     })
 
-    -- telescope
+    -- Telescope
     use({
         "nvim-telescope/telescope.nvim",
         as = "telescope",
@@ -74,7 +74,7 @@ return require("packer").startup(function(use)
         end,
     })
 
-    -- lualine
+    -- Lualine
     use({
         "nvim-lualine/lualine.nvim",
         requires = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -88,44 +88,6 @@ return require("packer").startup(function(use)
                 options = { theme = custom_gruvbox }
             })
         end,
-    })
-
-    -- Formatting/Linting
-    use({
-        "jose-elias-alvarez/null-ls.nvim",
-        requires = { { "nvim-lua/plenary.nvim" } },
-        config = function()
-            require("config.nullls").setup()
-        end,
-    })
-
-    -- Auto Completion and Snippets
-    use({
-        "hrsh7th/nvim-cmp",
-        config = function()
-            require("config.cmp").setup()
-            require("config.snippets").setup()
-            require("keys").setup_snippet_keymaps()
-        end,
-        requires = {
-            "hrsh7th/cmp-nvim-lsp",
-            "L3MON4D3/LuaSnip",
-            "saadparwaiz1/cmp_luasnip",
-            "rafamadriz/friendly-snippets",
-            "hrsh7th/cmp-path",
-        },
-    })
-
-    -- LSP
-    use({
-        "neovim/nvim-lspconfig",
-        config = function()
-            require("config.lsp").setup()
-        end,
-        requires = {
-            "williamboman/mason.nvim",
-            "williamboman/mason-lspconfig.nvim",
-        },
     })
 
     -- Buffers
@@ -155,6 +117,55 @@ return require("packer").startup(function(use)
         config = function()
             require("trouble").setup()
             require("keys").setup_trouble_keymaps()
+        end,
+    })
+
+
+    -- Editorconfig
+    use({
+        "gpanders/editorconfig.nvim",
+    })
+
+    -- Splits
+    use({
+        "mrjones2014/smart-splits.nvim",
+        after = "legendary",
+        config = function()
+            require("keys").setup_split_keymaps()
+        end,
+    })
+
+    -- Auto Completion and Snippets
+    use({
+        "hrsh7th/nvim-cmp",
+        config = function()
+            require("config.cmp").setup()
+            require("config.snippets").setup()
+            require("keys").setup_snippet_keymaps()
+        end,
+        requires = {
+            "hrsh7th/cmp-nvim-lsp",
+            "L3MON4D3/LuaSnip",
+            "saadparwaiz1/cmp_luasnip",
+            "rafamadriz/friendly-snippets",
+            "hrsh7th/cmp-path",
+        },
+    })
+
+    -- LSP / Formatting / Linting
+    use({
+        "neovim/nvim-lspconfig",
+        requires = {
+            "williamboman/mason.nvim",
+            "williamboman/mason-lspconfig.nvim",
+            "nvim-lua/plenary.nvim",
+            "jose-elias-alvarez/null-ls.nvim",
+            "lukas-reineke/lsp-format.nvim",
+        },
+        config = function()
+            require("lsp-format").setup()
+            require("config.lsp").setup()
+            require("config.nullls").setup()
         end,
     })
 
@@ -208,21 +219,6 @@ return require("packer").startup(function(use)
                 }
             })
             require("keys").setup_code_documentation_keymaps()
-        end,
-    })
-
-
-    -- Editorconfig
-    use({
-        "gpanders/editorconfig.nvim",
-    })
-
-    -- Splits
-    use({
-        "mrjones2014/smart-splits.nvim",
-        after = "legendary",
-        config = function()
-            require("keys").setup_split_keymaps()
         end,
     })
 
