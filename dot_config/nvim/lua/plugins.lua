@@ -104,6 +104,8 @@ return require("packer").startup(function(use)
         "hrsh7th/nvim-cmp",
         config = function()
             require("config.cmp").setup()
+            require("config.snippets").setup()
+            require("keys").setup_snippet_keymaps()
         end,
         requires = {
             "hrsh7th/cmp-nvim-lsp",
@@ -190,13 +192,25 @@ return require("packer").startup(function(use)
     })
 
     -- Code Documentation
-    use ({
-        'kkoomen/vim-doge',
-        run = ':call doge#install()',
+    use({
+        "danymat/neogen",
+        requires = "nvim-treesitter/nvim-treesitter",
         config = function()
-            vim.g.doge_doc_standard_python = 'google'
+            require('neogen').setup({
+                enabled = true,
+                snippet_engine = "luasnip",
+                languages = {
+                    python = {
+                        template = {
+                            annotation_convention = "google_docstrings"
+                        }
+                    },
+                }
+            })
+            require("keys").setup_code_documentation_keymaps()
         end,
     })
+
 
     -- Editorconfig
     use({

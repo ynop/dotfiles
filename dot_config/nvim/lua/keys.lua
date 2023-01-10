@@ -137,6 +137,22 @@ function M.setup_debug_keymaps()
     })
 end
 
+function M.setup_code_documentation_keymaps()
+    local legend = require("legendary")
+    local neogen = require("neogen")
+    legend.keymaps({
+        { "<leader>w", neogen.generate, description = "generate annotation" },
+    })
+end
+
+function M.setup_snippet_keymaps()
+    local legend = require("legendary")
+    local luasnip_loaders = require("luasnip.loaders")
+    legend.commands({
+        { ":SnippetsEdit", luasnip_loaders.edit_snippet_files, description = "edit snippets" },
+    })
+end
+
 function M.setup_split_keymaps()
     local legend = require("legendary")
     local ss = require("smart-splits")
