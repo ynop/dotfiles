@@ -1,5 +1,14 @@
 local M = {}
 
+function M.format_code()
+    vim.lsp.buf.format({
+        filter = function(client)
+            return client.name ~= "volar"
+        end,
+        timeout_ms = 2000
+    })
+end
+
 function M.setup()
     require("mason").setup({
         ui = {
@@ -18,7 +27,9 @@ function M.setup()
     -- Use an on_attach function to only map the following keys
     -- after the language server attaches to the current buffer
     local on_attach = function(client, bufnr)
-        require("lsp-format").on_attach(client)
+        if client.name ~= "volar" then
+            require("lsp-format").on_attach(client)
+        end
         require("keys").setup_lsp_buffer_keymaps(bufnr)
     end
 
@@ -130,6 +141,13 @@ function M.setup()
         on_attach = on_attach,
         flags = lsp_flags,
         capabilities = capabilities,
+    })
+
+    require("lspconfig")["volar"].setup({
+        on_attach = on_attach,
+        flags = lsp_flags,
+        capabilities = capabilities,
+        filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
     })
 end
 

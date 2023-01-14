@@ -23,7 +23,7 @@ function M.setup_main_keymaps()
         -- LSP
         {
             "<leader>fc",
-            toolbox.lazy(vim.lsp.buf.format, { timeout_ms = 2000 }),
+            require("config.lsp").format_code,
             description = "format current buffer",
         },
     })
