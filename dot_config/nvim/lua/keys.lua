@@ -95,8 +95,11 @@ function M.setup_buffer_commands()
     local toolbox = require("legendary.toolbox")
     legend.commands({
         { ":CloseHiddenBuffers",
-            toolbox.lazy(cb.delete, { type = "hidden" }),
+            toolbox.lazy(cb.wipe, { type = "hidden" }),
             description = "Close all inactive/hidden buffers" },
+        { ":ForcedCloseHiddenBuffers",
+            toolbox.lazy(cb.wipe, { type = "hidden", force = true }),
+            description = "Force (non-saved) close all inactive/hidden buffers" },
     })
 end
 

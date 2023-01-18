@@ -10,6 +10,7 @@ function M.setup()
                 dap = { justMyCode = false },
             }),
             require("neotest-plenary"),
+            require("neotest-vitest"),
         },
         quickfix = {
             enabled = true,

@@ -177,6 +177,7 @@ return require("packer").startup(function(use)
             "nvim-treesitter/nvim-treesitter",
             "antoinemadec/FixCursorHold.nvim",
             "nvim-neotest/neotest-python",
+            "marilari88/neotest-vitest",
             "nvim-neotest/neotest-plenary",
         },
         after = "legendary",
