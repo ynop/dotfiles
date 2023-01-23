@@ -24,7 +24,13 @@ return require("packer").startup(function(use)
     })
 
     -- UI
-    use({ "stevearc/dressing.nvim" })
+    use({ "stevearc/dressing.nvim",
+        config = function()
+            require("config.indent").setup()
+        end,
+    })
+
+    use({ "lukas-reineke/indent-blankline.nvim" })
 
     -- Legendary
     use({
