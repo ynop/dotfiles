@@ -245,6 +245,11 @@ return require("packer").startup(function(use)
         "ii14/neorepl.nvim"
     })
 
+    use({
+        'aduros/ai.vim',
+    })
+
+
     if packer_bootstrap then
         require("packer").sync()
     end
