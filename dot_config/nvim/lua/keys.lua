@@ -29,6 +29,14 @@ function M.setup_main_keymaps()
     })
 end
 
+function M.setup_nuuid_keymaps()
+    local legend = require("legendary")
+    legend.commands({
+        { ":NuuidBuffer", ":%NuuidAll",
+            description = "replace all occurrences of nuuid/guuid in the buffer with a random uuid" },
+    })
+end
+
 function M.setup_legendary_keymaps()
     local legend = require("legendary")
     legend.keymaps({
@@ -185,6 +193,8 @@ function M.setup_lsp_buffer_keymaps(bufnr)
         { "gD", vim.lsp.buf.declaration, description = "LSP go to declaration", opts = bufopts },
         { "gi", builtin.lsp_implementations, description = "LSP goto implementation", opts = bufopts },
         { "gh", vim.lsp.buf.signature_help, description = "LSP show signature help", opts = bufopts },
+        { "gh", vim.lsp.buf.signature_help, description = "LSP show signature help", opts = bufopts },
+        { "<C-K>", { n = vim.lsp.buf.signature_help }, description = "LSP show signature help", opts = bufopts },
         { "gt", builtin.type_definitions, description = "LSP go to type definition", opts = bufopts },
         { "gr", builtin.lsp_references, description = "LSP list references", opts = bufopts },
         { "<leader>k", vim.lsp.buf.hover, description = "LSP hover", opts = bufopts },

@@ -155,6 +155,7 @@ return require("packer").startup(function(use)
             "saadparwaiz1/cmp_luasnip",
             "rafamadriz/friendly-snippets",
             "hrsh7th/cmp-path",
+            "hrsh7th/cmp-nvim-lsp-signature-help",
         },
     })
 
@@ -241,12 +242,12 @@ return require("packer").startup(function(use)
     })
 
     -- Div
-    use({
-        "ii14/neorepl.nvim"
-    })
-
-    use({
-        'aduros/ai.vim',
+    use({ "ii14/neorepl.nvim" })
+    use({ 'aduros/ai.vim', })
+    use({ 'kburdett/vim-nuuid',
+        config = function()
+            require("keys").setup_nuuid_keymaps()
+        end
     })
 
 
