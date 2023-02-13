@@ -249,7 +249,14 @@ return require("packer").startup(function(use)
             require("keys").setup_nuuid_keymaps()
         end
     })
-
+    use({
+        'altermo/ultimate-autopair.nvim',
+        event = { 'InsertEnter', 'CmdlineEnter' },
+        config = function()
+            require('ultimate-autopair').setup({
+            })
+        end,
+    })
 
     if packer_bootstrap then
         require("packer").sync()
