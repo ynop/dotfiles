@@ -15,6 +15,7 @@ brew 'zathura-pdf-poppler'
 brew 'tldr'
 brew 'terraform'
 brew 'awscli'
+brew 'pgformatter'
 
 cask 'alacritty'
 cask 'google-drive'
