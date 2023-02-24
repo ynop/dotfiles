@@ -24,7 +24,8 @@ return require("packer").startup(function(use)
     })
 
     -- UI
-    use({ "stevearc/dressing.nvim",
+    use({
+        "stevearc/dressing.nvim",
         config = function()
             require("config.indent").setup()
         end,
@@ -79,6 +80,17 @@ return require("packer").startup(function(use)
             require("keys").setup_telescope_keymaps()
         end,
     })
+
+    -- Aerial
+    use {
+        'stevearc/aerial.nvim',
+        after = "telescope",
+        config = function()
+            require("aerial").setup()
+            require("keys").setup_aerial_keymaps()
+            require("telescope").load_extension('aerial')
+        end,
+    }
 
     -- Lualine
     use({
@@ -243,23 +255,14 @@ return require("packer").startup(function(use)
 
     -- Div
     use({ "ii14/neorepl.nvim" })
-    use({ 'aduros/ai.vim', })
-    use({ 'kburdett/vim-nuuid',
+    use({
+        'kburdett/vim-nuuid',
         config = function()
             require("keys").setup_nuuid_keymaps()
         end
-    })
-    use({
-        'altermo/ultimate-autopair.nvim',
-        event = { 'InsertEnter', 'CmdlineEnter' },
-        config = function()
-            require('ultimate-autopair').setup({
-            })
-        end,
     })
 
     if packer_bootstrap then
         require("packer").sync()
     end
-
 end)
