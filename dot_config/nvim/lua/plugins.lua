@@ -153,6 +153,14 @@ return require("packer").startup(function(use)
         end,
     })
 
+    use({
+        "Pocco81/true-zen.nvim",
+        config = function()
+            require("true-zen").setup({})
+            require("keys").setup_zen_keymaps()
+        end,
+    })
+
     -- Auto Completion and Snippets
     use({
         "hrsh7th/nvim-cmp",

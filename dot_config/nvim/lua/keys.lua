@@ -122,6 +122,16 @@ function M.setup_buffer_commands()
     })
 end
 
+function M.setup_zen_keymaps()
+    local legend = require("legendary")
+    legend.keymaps({
+        { "<leader>zn", { n = ":TZNarrow<CR>", v = ":'<,'>TZNarrow<CR>" }, description = "zen narrow" },
+        { "<leader>zf", ":TZFocus<CR>",                                    description = "zen focus" },
+        { "<leader>zm", ":TZMinimalist<CR>",                               description = "zen minimalist" },
+        { "<leader>za", ":TZAtaraxis<CR>",                                 description = "zen ataraxis" },
+    })
+end
+
 function M.setup_testing_keymaps()
     local legend = require("legendary")
     local neotest = require("neotest")
