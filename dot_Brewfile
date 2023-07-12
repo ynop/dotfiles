@@ -15,6 +15,7 @@ brew 'zathura-pdf-poppler'
 brew 'tldr'
 brew 'terraform'
 brew 'awscli'
+brew 'aws-elasticbeanstalk'
 brew 'pgformatter'
 
 cask 'alacritty'
