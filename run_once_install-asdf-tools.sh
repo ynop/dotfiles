@@ -6,5 +6,6 @@ asdf plugin add java
 asdf plugin add lua
 asdf plugin add golang
 asdf plugin add poetry
+asdf plugin add dotnet
 
 asdf install
