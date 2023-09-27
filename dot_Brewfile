@@ -17,6 +17,7 @@ brew 'terraform'
 brew 'awscli'
 brew 'aws-elasticbeanstalk'
 brew 'pgformatter'
+brew 'tpm'
 
 cask 'alacritty'
 cask 'google-drive'
