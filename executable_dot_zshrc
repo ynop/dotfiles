@@ -1,8 +1,9 @@
 alias ll="ls -la"
 
 # ASDF
-. /usr/local/opt/asdf/libexec/asdf.sh
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
 . ~/.asdf/plugins/java/set-java-home.zsh
 . ~/.asdf/plugins/dotnet/set-dotnet-env.zsh
+
 
 
