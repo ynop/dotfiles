@@ -1,5 +1,6 @@
 tap 'zegervdv/zathura'
 tap 'hashicorp/tap'
+tap 'homebrew/cask-fonts'
 
 brew 'git'
 brew 'neovim'
@@ -20,6 +21,7 @@ brew 'pgformatter'
 brew 'tpm'
 brew 'lazygit'
 
+cask 'font-hack-nerd-font'
 cask 'alacritty'
 cask 'google-drive'
 cask 'basictex'
