@@ -4,4 +4,6 @@ README.md
 Library/Application Support/Spectacle/Shortcuts.json
 Library/Keyboard Layouts/us-international-qwertz.bundle
 .Brewfile
+{{ else }}
+.config/nvim/lazy-lock.json
 {{ end }}
