@@ -8,6 +8,7 @@ return {
       "stylua",
       "shfmt",
       "black",
+      "taplo",
     },
   },
   ---@param opts MasonSettings | {ensure_installed: string[]}

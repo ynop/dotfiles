@@ -13,6 +13,7 @@ return {
         },
       },
       ruff_lsp = {},
+      taplo = {},
     },
     setup = {
       ruff_lsp = function()
