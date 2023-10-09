@@ -14,6 +14,7 @@ return {
       },
       ruff_lsp = {},
       taplo = {},
+      gradle_ls = {},
     },
     setup = {
       ruff_lsp = function()

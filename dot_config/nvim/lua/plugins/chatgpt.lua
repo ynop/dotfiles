@@ -12,7 +12,9 @@ return {
     "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
     config = function()
-      require("chatgpt").setup()
+      require("chatgpt").setup({
+        api_key_cmd = "op read op://Personal/OpenAI/api_secret --no-newline",
+      })
     end,
     dependencies = {
       "MunifTanjim/nui.nvim",
