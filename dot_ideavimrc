@@ -1,0 +1,43 @@
+set NERDTree
+
+" #######################################################################
+" KEY MAPPING
+"
+
+" replace esc by j - k
+:inoremap jk <esc>
+:inoremap <esc> <nop>
+
+let mapleader=" "
+
+:map <leader>e :NERDTreeFocus<CR>
+
+:map <leader>cf <action>(ReformatCode)
+:map <leader>cr <action>(RenameElement)
+
+" #######################################################################
+" SEARCH / REPLACE
+"
+
+" Enable Highlight Search
+set hlsearch
+" Highlight while search
+set incsearch
+" Case Insensitivity Pattern Matching
+set ignorecase
+" Overrides ignorecase if pattern contains upcase
+set smartcase
+
+
+" #######################################################################
+" EDITOR BEHAVIOUR
+"
+
+" Line numbers
+set number
+set relativenumber
+
+" show at list one line above/below cursor
+set scrolloff=1
+" show at least 5 chars begin/end of line
+set sidescrolloff=5
