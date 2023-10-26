@@ -8,5 +8,6 @@ asdf plugin add golang
 asdf plugin add poetry
 asdf plugin add dotnet
 asdf plugin add gradle
+asdf plugin add rust
 
 asdf install
