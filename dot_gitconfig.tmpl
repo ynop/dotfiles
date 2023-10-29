@@ -1,8 +1,8 @@
 [credential]
 	helper = osxkeychain
 [user]
-	name = ynop
-	email = m.buechi@outlook.com
+	name = {{ index . "git_user_name" | default "ynop" }}
+	email = {{ index . "git_email" | default "m.buechi@outlook.com" }}
 [core]
 	editor = nvim
 	excludesfile = ~/.gitignore_global
