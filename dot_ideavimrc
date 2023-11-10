@@ -14,6 +14,9 @@ let mapleader=" "
 
 :map <leader>cf <action>(ReformatCode)
 :map <leader>cr <action>(RenameElement)
+:map <leader>sg <action>(FindInPath)
+:map <leader>ff <action>(GotoFile)
+:map <leader>gc <action>(CommentByLineComment)
 
 " #######################################################################
 " SEARCH / REPLACE
