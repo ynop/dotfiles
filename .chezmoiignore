@@ -1,9 +1,18 @@
 README.md
 
 {{ if ne .chezmoi.os "darwin" }}
-Library/Application Support/Spectacle/Shortcuts.json
-Library/Keyboard Layouts/us-international-qwertz.bundle
+.config/
+.tmuxp/
+.ssh/
+Library/
 .Brewfile
-{{ else }}
-.config/nvim/lazy-lock.json
+.alacritty.toml
+.editorconfig
+.gitconfig
+.gitignore_global
+.ideavimrc
+.tmux.conf
+.tool-versions
+.zshrc
+
 {{ end }}
