@@ -1,24 +1,28 @@
-set NERDTree
-
-" #######################################################################
-" KEY MAPPING
-"
-
-" replace esc by j - k
 :inoremap jk <esc>
 :inoremap <esc> <nop>
 
 let mapleader=" "
 
-:map <leader>e :NERDTreeFocus<CR>
+nmap <C-O> :vsc View.NavigateBackward<CR>
+nmap <C-I> :vsc View.NavigateForward<CR>
 
-:map <leader>cf <action>(ReformatCode)
-:map <leader>cr <action>(RenameElement)
-:map <leader>sg <action>(FindInPath)
-:map <leader>ff <action>(GotoFile)
-:map <leader>gc <action>(CommentByLineComment)
-:map <leader>tt <action>(RunClass)
-:map gI <action>(ReSharperGotoImplementation)
+nmap <S-H> :vsc Window.PreviousTab<CR>
+nmap <S-L> :vsc Window.NextTab<CR>
+
+nmap <Leader>sg :vsc Edit.FindinFiles<CR>
+
+nmap gI :vsc Edit.GoToImplementation<CR>
+nmap gd :vsc Edit.GoToDefinition<CR>
+nmap gr :vsc Edit.FindAllReferences<CR>
+nmap <Leader>cf :vsc Edit.FormatDocument<CR>
+nmap <Leader>cr :vsc Refactor.Rename<CR>
+
+nmap <Leader>ff :vsc Edit.GoToFile<CR>
+nmap <S-k> :vsc Edit.PeekDefinition<CR>
+
+
+
+vmap gc :vsc Edit.CommentSelection
 
 " #######################################################################
 " SEARCH / REPLACE

@@ -10,9 +10,12 @@ Library/
 .editorconfig
 .gitconfig
 .gitignore_global
-.ideavimrc
 .tmux.conf
 .tool-versions
 .zshrc
+
+{{else if ne .chezmoi.os "windows" }}
+
+_vsvimrc
 
 {{ end }}
