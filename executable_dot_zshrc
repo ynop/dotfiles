@@ -5,5 +5,7 @@ alias ll="ls -la"
 . ~/.asdf/plugins/java/set-java-home.zsh
 . ~/.asdf/plugins/dotnet/set-dotnet-env.zsh
 
+export PATH="$PATH:/Users/matthi/.dotnet/tools"
+
 
 
