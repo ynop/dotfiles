@@ -2,8 +2,8 @@ python 3.11.0 2.7.18
 nodejs 19.2.0
 java adoptopenjdk-19.0.1+10
 lua 5.4.4
-golang 1.19.3
-dotnet 8.0.101
+golang 1.22.1
+dotnet 8.0.201
 gradle 8.3
 poetry 1.6.1
 rust 1.73.0
